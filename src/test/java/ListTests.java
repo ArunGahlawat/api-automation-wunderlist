@@ -19,14 +19,14 @@ public class ListTests {
 
 	@Test(description = "Create list",groups = {"LISTS"}, dataProvider = "TestDataProvider",
 			dataProviderClass = DataProviderHelper.class)
-	public void test_createList(String Title, String Update){
+	public void test_createList(String listName, String update){
 		/*ListController listController = new ListController();
 		Response response = listController.getAll();
 		Assert.verifyEquals(response.statusCode(),200);
 		Log.info("Current lists:");
 		Log.info(response.body().jsonPath().prettify());*/
 		Log.info("==================");
-		Log.info("Title: "+Title);
-		Log.info("Update: "+Update);
+		Log.info("Title: "+listName);
+		Log.info("Update: "+update);
 	}
 }

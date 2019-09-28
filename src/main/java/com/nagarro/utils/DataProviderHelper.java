@@ -2,12 +2,12 @@ package com.nagarro.utils;
 
 import com.nagarro.utils.enums.Config;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
-
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -18,6 +18,7 @@ public class DataProviderHelper {
 	@DataProvider(name = "TestDataProvider")
 	public static Object[][] getTableArray(Method method) {
 		Test test = method.getAnnotation(Test.class);
+		int firstRow = Common.getConfig(Config.COMMON).getInt("FIRST_DATA_ROW_INDEX");
 		String fileName = "";
 		boolean isFound = false;
 		for (String group : test.groups()) {
@@ -70,12 +71,21 @@ public class DataProviderHelper {
 			}
 			Sheet sheet = workbook.getSheet(sheetName);
 			int rowCount = sheet.getLastRowNum();
-			tabArray = new String[rowCount+1][];
+			int maxColCount = 0;
 			for (int i=0;i<=rowCount;i++) {
+				maxColCount = maxColCount < sheet.getRow(i).getLastCellNum() ? sheet.getRow(i).getLastCellNum() : maxColCount;
+			}
+
+
+			tabArray = new String[rowCount+1-firstRow][maxColCount];
+			for (int i=firstRow;i<=rowCount;i++) {
 				Row row = sheet.getRow(i);
-				tabArray[i] = new String[row.getLastCellNum()];
-				for (int j=0;j<row.getLastCellNum();j++) {
-					tabArray[i][j] = row.getCell(j).getStringCellValue();
+				for (int j=0;j<maxColCount;j++) {
+					CellType cellType = row.getCell(j, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getCellType();
+					if (cellType == CellType._NONE || cellType == CellType.BLANK)
+						tabArray[i-firstRow][j] = "";
+					else
+						tabArray[i-firstRow][j] = row.getCell(j).getStringCellValue();
 				}
 			}
 		} catch (IOException e){
