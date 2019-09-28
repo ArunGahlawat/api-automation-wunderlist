@@ -1,0 +1,4 @@
+/*.log
+/target/
+/.idea/
+/src/main/resources/credentials.properties

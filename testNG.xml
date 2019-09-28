@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Parent Suit">
+	<test name="OAuth Test cases">
+		<groups>
+			<run>
+				<include name="LoginTests"/>
+			</run>
+		</groups>
+		<classes>
+			<class name="LoginTests"/>
+		</classes>
+	</test>
+	<test name="List tests">
+		<groups>
+			<run>
+				<include name="LISTS"/>
+			</run>
+		</groups>
+		<classes>
+			<class name="ListTests"/>
+		</classes>
+	</test>
+</suite>
