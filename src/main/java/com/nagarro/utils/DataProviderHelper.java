@@ -32,7 +32,7 @@ public class DataProviderHelper {
 					isFound = true;
 					break;
 				case "SUBTASKS":
-					fileName = Common.getConfig(Config.COMMON).getString("TEST_DATA_SUBTASKS");
+					fileName = Common.getConfig(Config.COMMON).getString("TEST_DATA_SUB_TASKS");
 					isFound = true;
 					break;
 				case "NOTES":

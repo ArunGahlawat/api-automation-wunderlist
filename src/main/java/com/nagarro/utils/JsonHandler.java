@@ -9,7 +9,7 @@ import com.google.gson.JsonParser;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -123,7 +123,10 @@ public class JsonHandler {
 	}
 
 	public static JsonElement getResponseAsJson(Response response, String tagName) {
-		return getResponseAsJson(response).get(tagName);
+		if (StringUtils.isBlank(tagName))
+			return getResponseAsJson(response);
+		else
+			return getResponseAsJson(response).get(tagName);
 	}
 
 	public static JsonObject getResponseAsJson(Response response) {

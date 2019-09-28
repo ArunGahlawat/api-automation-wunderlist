@@ -1,35 +1,27 @@
 package com.nagarro.requests;
 
 public class TaskRequest {
-	private int list_id;
+	private Integer list_id;
 	private String title;
-	private int id;
-	private int assignee_id;
+	private Integer id;
+	private Integer assignee_id;
 	private String created_at;
-	private int created_by_id;
+	private Integer created_by_id;
 	private String due_date;
-	private boolean starred;
-	private int revision;
-	private boolean completed;
+	private Boolean starred;
+	private Integer revision;
+	private Boolean completed;
 	private String completed_at;
-	private int completed_by_id;
+	private Integer completed_by_id;
 	private String recurrence_type;
-	private int recurrence_count;
+	private Integer recurrence_count;
 	private String[] remove;
 
-	public String[] getRemove() {
-		return remove;
-	}
-
-	public void setRemove(String[] remove) {
-		this.remove = remove;
-	}
-
-	public int getList_id() {
+	public Integer getList_id() {
 		return list_id;
 	}
 
-	public void setList_id(int list_id) {
+	public void setList_id(Integer list_id) {
 		this.list_id = list_id;
 	}
 
@@ -41,19 +33,19 @@ public class TaskRequest {
 		this.title = title;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getAssignee_id() {
+	public Integer getAssignee_id() {
 		return assignee_id;
 	}
 
-	public void setAssignee_id(int assignee_id) {
+	public void setAssignee_id(Integer assignee_id) {
 		this.assignee_id = assignee_id;
 	}
 
@@ -65,11 +57,11 @@ public class TaskRequest {
 		this.created_at = created_at;
 	}
 
-	public int getCreated_by_id() {
+	public Integer getCreated_by_id() {
 		return created_by_id;
 	}
 
-	public void setCreated_by_id(int created_by_id) {
+	public void setCreated_by_id(Integer created_by_id) {
 		this.created_by_id = created_by_id;
 	}
 
@@ -81,27 +73,27 @@ public class TaskRequest {
 		this.due_date = due_date;
 	}
 
-	public boolean isStarred() {
+	public Boolean getStarred() {
 		return starred;
 	}
 
-	public void setStarred(boolean starred) {
+	public void setStarred(Boolean starred) {
 		this.starred = starred;
 	}
 
-	public int getRevision() {
+	public Integer getRevision() {
 		return revision;
 	}
 
-	public void setRevision(int revision) {
+	public void setRevision(Integer revision) {
 		this.revision = revision;
 	}
 
-	public boolean isCompleted() {
+	public Boolean getCompleted() {
 		return completed;
 	}
 
-	public void setCompleted(boolean completed) {
+	public void setCompleted(Boolean completed) {
 		this.completed = completed;
 	}
 
@@ -113,11 +105,11 @@ public class TaskRequest {
 		this.completed_at = completed_at;
 	}
 
-	public int getCompleted_by_id() {
+	public Integer getCompleted_by_id() {
 		return completed_by_id;
 	}
 
-	public void setCompleted_by_id(int completed_by_id) {
+	public void setCompleted_by_id(Integer completed_by_id) {
 		this.completed_by_id = completed_by_id;
 	}
 
@@ -129,11 +121,19 @@ public class TaskRequest {
 		this.recurrence_type = recurrence_type;
 	}
 
-	public int getRecurrence_count() {
+	public Integer getRecurrence_count() {
 		return recurrence_count;
 	}
 
-	public void setRecurrence_count(int recurrence_count) {
+	public void setRecurrence_count(Integer recurrence_count) {
 		this.recurrence_count = recurrence_count;
+	}
+
+	public String[] getRemove() {
+		return remove;
+	}
+
+	public void setRemove(String[] remove) {
+		this.remove = remove;
 	}
 }

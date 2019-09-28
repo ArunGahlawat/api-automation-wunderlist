@@ -58,9 +58,7 @@ public class NoteController {
 	public Response delete(int id, int revision) {
 		Api api = new Api();
 		api.apiUrl = Common.generateURL(Endpoint.NOTES);
-		NoteRequest noteRequest = new NoteRequest();
-		noteRequest.setRevision(revision);
-		api.jsonBody = JsonHandler.toJson(noteRequest);
+		api.queryParams.put("revision",String.valueOf(revision));
 		api.pathParams.put("id",String.valueOf(id));
 		api.sendNetworkRequest(RequestType.DELETE);
 		return api.jsonResponse;

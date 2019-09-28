@@ -3,45 +3,45 @@ package com.nagarro.requests;
 import com.nagarro.requests.helper.Author;
 
 public class TaskCommentRequest {
-	private int list_id;
-	private int task_id;
-	private int id;
-	private int revision;
+	private Integer list_id;
+	private Integer task_id;
+	private Integer id;
+	private Integer revision;
 	private String text;
 	private String type;
 	private String created_at;
 	private Author author;
 	private String title;
 
-	public int getList_id() {
+	public Integer getList_id() {
 		return list_id;
 	}
 
-	public void setList_id(int list_id) {
+	public void setList_id(Integer list_id) {
 		this.list_id = list_id;
 	}
 
-	public int getTask_id() {
+	public Integer getTask_id() {
 		return task_id;
 	}
 
-	public void setTask_id(int task_id) {
+	public void setTask_id(Integer task_id) {
 		this.task_id = task_id;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getRevision() {
+	public Integer getRevision() {
 		return revision;
 	}
 
-	public void setRevision(int revision) {
+	public void setRevision(Integer revision) {
 		this.revision = revision;
 	}
 

@@ -49,10 +49,8 @@ public class ListController {
 	public Response delete(int id, int revision) {
 		Api api = new Api();
 		api.apiUrl = Common.generateURL(Endpoint.LISTS);
-		ListRequest listRequest = new ListRequest();
-		listRequest.setRevision(revision);
 		api.pathParams.put("id", String.valueOf(id));
-		api.jsonBody = JsonHandler.toJson(listRequest);
+		api.queryParams.put("revision",String.valueOf(revision));
 		api.sendNetworkRequest(RequestType.DELETE);
 		return api.jsonResponse;
 	}

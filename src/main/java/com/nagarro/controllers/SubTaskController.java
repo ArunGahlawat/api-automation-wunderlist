@@ -74,9 +74,7 @@ public class SubTaskController {
 	public Response delete(int id, int revision) {
 		Api api = new Api();
 		api.apiUrl = Common.generateURL(Endpoint.SUBTASKS);
-		SubTaskRequest subTaskRequest = new SubTaskRequest();
-		subTaskRequest.setRevision(revision);
-		api.jsonBody = JsonHandler.toJson(subTaskRequest);
+		api.queryParams.put("revision",String.valueOf(revision));
 		api.pathParams.put("id",String.valueOf(id));
 		api.sendNetworkRequest(RequestType.DELETE);
 		return api.jsonResponse;

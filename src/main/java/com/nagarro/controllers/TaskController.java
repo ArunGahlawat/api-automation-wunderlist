@@ -58,9 +58,7 @@ public class TaskController {
 	public Response delete(int id, int revision) {
 		Api api = new Api();
 		api.apiUrl = Common.generateURL(Endpoint.TASKS);
-		TaskRequest taskRequest = new TaskRequest();
-		taskRequest.setRevision(revision);
-		api.jsonBody = JsonHandler.toJson(taskRequest);
+		api.queryParams.put("revision",String.valueOf(revision));
 		api.pathParams.put("id",String.valueOf(id));
 		api.sendNetworkRequest(RequestType.DELETE);
 		return api.jsonResponse;

@@ -1,35 +1,35 @@
 package com.nagarro.requests;
 
 public class NoteRequest {
-	 private int id;
-	 private int task_id;
-	 private int list_id;
+	 private Integer id;
+	 private Integer task_id;
+	 private Integer list_id;
 	 private String content;
 	 private String created_at;
 	 private String updated_at;
-	 private int revision;
+	 private Integer revision;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getTask_id() {
+	public Integer getTask_id() {
 		return task_id;
 	}
 
-	public void setTask_id(int task_id) {
+	public void setTask_id(Integer task_id) {
 		this.task_id = task_id;
 	}
 
-	public int getList_id() {
+	public Integer getList_id() {
 		return list_id;
 	}
 
-	public void setList_id(int list_id) {
+	public void setList_id(Integer list_id) {
 		this.list_id = list_id;
 	}
 
@@ -57,11 +57,11 @@ public class NoteRequest {
 		this.updated_at = updated_at;
 	}
 
-	public int getRevision() {
+	public Integer getRevision() {
 		return revision;
 	}
 
-	public void setRevision(int revision) {
+	public void setRevision(Integer revision) {
 		this.revision = revision;
 	}
 }

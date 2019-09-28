@@ -1,37 +1,37 @@
 package com.nagarro.requests;
 
 public class SubTaskRequest {
-	private int id;
-	private int task_id;
-	private int list_id;
+	private Integer id;
+	private Integer task_id;
+	private Integer list_id;
 	private String created_at;
-	private int created_by_id;
-	private boolean completed;
+	private Integer created_by_id;
+	private Boolean completed;
 	private String completed_at;
-	private int revision;
+	private Integer revision;
 	private String title;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getTask_id() {
+	public Integer getTask_id() {
 		return task_id;
 	}
 
-	public void setTask_id(int task_id) {
+	public void setTask_id(Integer task_id) {
 		this.task_id = task_id;
 	}
 
-	public int getList_id() {
+	public Integer getList_id() {
 		return list_id;
 	}
 
-	public void setList_id(int list_id) {
+	public void setList_id(Integer list_id) {
 		this.list_id = list_id;
 	}
 
@@ -43,19 +43,19 @@ public class SubTaskRequest {
 		this.created_at = created_at;
 	}
 
-	public int getCreated_by_id() {
+	public Integer getCreated_by_id() {
 		return created_by_id;
 	}
 
-	public void setCreated_by_id(int created_by_id) {
+	public void setCreated_by_id(Integer created_by_id) {
 		this.created_by_id = created_by_id;
 	}
 
-	public boolean isCompleted() {
+	public Boolean getCompleted() {
 		return completed;
 	}
 
-	public void setCompleted(boolean completed) {
+	public void setCompleted(Boolean completed) {
 		this.completed = completed;
 	}
 
@@ -67,11 +67,11 @@ public class SubTaskRequest {
 		this.completed_at = completed_at;
 	}
 
-	public int getRevision() {
+	public Integer getRevision() {
 		return revision;
 	}
 
-	public void setRevision(int revision) {
+	public void setRevision(Integer revision) {
 		this.revision = revision;
 	}
 
