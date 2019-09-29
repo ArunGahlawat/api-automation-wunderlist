@@ -1,21 +1,21 @@
 package com.nagarro.requests;
 
 public class ListRequest {
-	private Integer id;
+	private Long id;
 	private String created_at;
 	private String title;
 	private String list_type;
 	private String type;
-	private Integer revision;
+	private Long revision;
 	private String owner_type;
 	private String owner_id;
 	private Boolean Public;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -51,11 +51,11 @@ public class ListRequest {
 		this.type = type;
 	}
 
-	public Integer getRevision() {
+	public Long getRevision() {
 		return revision;
 	}
 
-	public void setRevision(Integer revision) {
+	public void setRevision(Long revision) {
 		this.revision = revision;
 	}
 

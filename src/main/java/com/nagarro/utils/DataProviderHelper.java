@@ -80,11 +80,7 @@ public class DataProviderHelper {
 			for (int i=firstRow;i<=rowCount;i++) {
 				Row row = sheet.getRow(i);
 				for (int j=0;j<maxColCount;j++) {
-					CellType cellType = row.getCell(j, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getCellType();
-					if (cellType == CellType._NONE || cellType == CellType.BLANK)
-						tabArray[i-firstRow][j] = "";
-					else
-						tabArray[i-firstRow][j] = row.getCell(j).getStringCellValue();
+					tabArray[i-firstRow][j] = row.getCell(j) != null ? row.getCell(j).toString() : "";
 				}
 			}
 		} catch (IOException e){

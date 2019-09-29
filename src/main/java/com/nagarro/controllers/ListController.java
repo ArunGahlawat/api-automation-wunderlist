@@ -16,7 +16,7 @@ public class ListController {
 		return api.jsonResponse;
 	}
 
-	public Response fetch(int id) {
+	public Response fetch(Long id) {
 		Api api = new Api();
 		api.apiUrl = Common.generateURL(Endpoint.LISTS);
 		api.pathParams.put("id",String.valueOf(id));
@@ -34,7 +34,7 @@ public class ListController {
 		return api.jsonResponse;
 	}
 
-	public Response update(int id, int revision, String title) {
+	public Response update(Long id, Long revision, String title) {
 		Api api = new Api();
 		api.apiUrl = Common.generateURL(Endpoint.LISTS);
 		ListRequest listRequest = new ListRequest();
@@ -46,7 +46,7 @@ public class ListController {
 		return api.jsonResponse;
 	}
 
-	public Response delete(int id, int revision) {
+	public Response delete(Long id, Long revision) {
 		Api api = new Api();
 		api.apiUrl = Common.generateURL(Endpoint.LISTS);
 		api.pathParams.put("id", String.valueOf(id));

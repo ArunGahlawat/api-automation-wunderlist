@@ -1,37 +1,37 @@
 package com.nagarro.requests;
 
 public class SubTaskRequest {
-	private Integer id;
-	private Integer task_id;
-	private Integer list_id;
+	private Long id;
+	private Long task_id;
+	private Long list_id;
 	private String created_at;
-	private Integer created_by_id;
+	private Long created_by_id;
 	private Boolean completed;
 	private String completed_at;
-	private Integer revision;
+	private Long revision;
 	private String title;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public Integer getTask_id() {
+	public Long getTask_id() {
 		return task_id;
 	}
 
-	public void setTask_id(Integer task_id) {
+	public void setTask_id(Long task_id) {
 		this.task_id = task_id;
 	}
 
-	public Integer getList_id() {
+	public Long getList_id() {
 		return list_id;
 	}
 
-	public void setList_id(Integer list_id) {
+	public void setList_id(Long list_id) {
 		this.list_id = list_id;
 	}
 
@@ -43,11 +43,11 @@ public class SubTaskRequest {
 		this.created_at = created_at;
 	}
 
-	public Integer getCreated_by_id() {
+	public Long getCreated_by_id() {
 		return created_by_id;
 	}
 
-	public void setCreated_by_id(Integer created_by_id) {
+	public void setCreated_by_id(Long created_by_id) {
 		this.created_by_id = created_by_id;
 	}
 
@@ -67,11 +67,11 @@ public class SubTaskRequest {
 		this.completed_at = completed_at;
 	}
 
-	public Integer getRevision() {
+	public Long getRevision() {
 		return revision;
 	}
 
-	public void setRevision(Integer revision) {
+	public void setRevision(Long revision) {
 		this.revision = revision;
 	}
 

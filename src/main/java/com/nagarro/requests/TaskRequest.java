@@ -1,27 +1,36 @@
 package com.nagarro.requests;
 
 public class TaskRequest {
-	private Integer list_id;
+	private Long list_id;
 	private String title;
-	private Integer id;
-	private Integer assignee_id;
+	private Long id;
+	private Long assignee_id;
 	private String created_at;
-	private Integer created_by_id;
+	private Long created_by_id;
 	private String due_date;
 	private Boolean starred;
-	private Integer revision;
+	private Long revision;
 	private Boolean completed;
 	private String completed_at;
-	private Integer completed_by_id;
+	private Long completed_by_id;
 	private String recurrence_type;
-	private Integer recurrence_count;
+	private Long recurrence_count;
 	private String[] remove;
+	private String type;
 
-	public Integer getList_id() {
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Long getList_id() {
 		return list_id;
 	}
 
-	public void setList_id(Integer list_id) {
+	public void setList_id(Long list_id) {
 		this.list_id = list_id;
 	}
 
@@ -33,19 +42,19 @@ public class TaskRequest {
 		this.title = title;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public Integer getAssignee_id() {
+	public Long getAssignee_id() {
 		return assignee_id;
 	}
 
-	public void setAssignee_id(Integer assignee_id) {
+	public void setAssignee_id(Long assignee_id) {
 		this.assignee_id = assignee_id;
 	}
 
@@ -57,11 +66,11 @@ public class TaskRequest {
 		this.created_at = created_at;
 	}
 
-	public Integer getCreated_by_id() {
+	public Long getCreated_by_id() {
 		return created_by_id;
 	}
 
-	public void setCreated_by_id(Integer created_by_id) {
+	public void setCreated_by_id(Long created_by_id) {
 		this.created_by_id = created_by_id;
 	}
 
@@ -81,11 +90,11 @@ public class TaskRequest {
 		this.starred = starred;
 	}
 
-	public Integer getRevision() {
+	public Long getRevision() {
 		return revision;
 	}
 
-	public void setRevision(Integer revision) {
+	public void setRevision(Long revision) {
 		this.revision = revision;
 	}
 
@@ -105,11 +114,11 @@ public class TaskRequest {
 		this.completed_at = completed_at;
 	}
 
-	public Integer getCompleted_by_id() {
+	public Long getCompleted_by_id() {
 		return completed_by_id;
 	}
 
-	public void setCompleted_by_id(Integer completed_by_id) {
+	public void setCompleted_by_id(Long completed_by_id) {
 		this.completed_by_id = completed_by_id;
 	}
 
@@ -121,11 +130,11 @@ public class TaskRequest {
 		this.recurrence_type = recurrence_type;
 	}
 
-	public Integer getRecurrence_count() {
+	public Long getRecurrence_count() {
 		return recurrence_count;
 	}
 
-	public void setRecurrence_count(Integer recurrence_count) {
+	public void setRecurrence_count(Long recurrence_count) {
 		this.recurrence_count = recurrence_count;
 	}
 

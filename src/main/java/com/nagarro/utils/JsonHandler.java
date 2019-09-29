@@ -2,10 +2,7 @@ package com.nagarro.utils;
 
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -25,6 +22,26 @@ public class JsonHandler {
 		return getDtoFromJsonString(getResponseAsJson(response, tagName).toString(), object);
 	}
 
+	public static JsonElement getResponseAsJson(Response response, String tagName) {
+		if (StringUtils.isBlank(tagName))
+			return getResponseAsJson(response);
+		else
+			return getResponseAsJson(response).get(tagName);
+	}
+
+	public static JsonObject getResponseAsJson(Response response) {
+		try {
+			response = response.then().contentType(ContentType.JSON).extract().response();
+			JsonParser parser = new JsonParser();
+			if (response.asString().charAt(0)=='[')
+				return parser.parse(response.asString()).getAsJsonArray().get(0).getAsJsonObject();
+			return parser.parse(response.asString()).getAsJsonObject();
+		} catch (Exception e) {
+			Assert.fail("Error parsing " + e.getLocalizedMessage());
+		}
+		return new JsonObject();
+	}
+
 	/*
 	 * Will return object if mapping fails.
 	 */
@@ -41,20 +58,6 @@ public class JsonHandler {
 		return null;
 	}
 
-	/*
-	 * Will return an empty ArrayList<T> if mapping fails.
-	 */
-	public static <T> List<T> getListDtoFromResponse(Response response, String tagName, T object) {
-		JsonElement responseAsJson = getResponseAsJson(response, tagName);
-		List<T> listDtoFromJsonString = null;
-		if (responseAsJson != null)
-			listDtoFromJsonString = getListDtoFromJsonString(responseAsJson.toString(), object);
-		return listDtoFromJsonString;
-	}
-
-	/*
-	 * Will return an empty ArrayList<T> if mapping fails.
-	 */
 	public static <T> List<T> getListDtoFromJsonString(String jsonString, T object) {
 		if (StringUtils.isEmpty(jsonString))
 			return null;
@@ -72,6 +75,24 @@ public class JsonHandler {
 		}
 		return null;
 	}
+
+
+
+	/*
+	 * Will return an empty ArrayList<T> if mapping fails.
+	 */
+	public static <T> List<T> getListDtoFromResponse(Response response, String tagName, T object) {
+		JsonElement responseAsJson = getResponseAsJson(response, tagName);
+		List<T> listDtoFromJsonString = null;
+		if (responseAsJson != null)
+			listDtoFromJsonString = getListDtoFromJsonString(responseAsJson.toString(), object);
+		return listDtoFromJsonString;
+	}
+
+	/*
+	 * Will return an empty ArrayList<T> if mapping fails.
+	 */
+
 
 	/*
 	 * Will return an empty HashMap<T, K> if mapping fails.
@@ -120,24 +141,6 @@ public class JsonHandler {
 			Assert.fail("Error : " + e.getMessage());
 		}
 		return null;
-	}
-
-	public static JsonElement getResponseAsJson(Response response, String tagName) {
-		if (StringUtils.isBlank(tagName))
-			return getResponseAsJson(response);
-		else
-			return getResponseAsJson(response).get(tagName);
-	}
-
-	public static JsonObject getResponseAsJson(Response response) {
-		try {
-			response = response.then().contentType(ContentType.JSON).extract().response();
-			JsonParser parser = new JsonParser();
-			return parser.parse(response.asString()).getAsJsonObject();
-		} catch (Exception e) {
-			Assert.fail("Error parsing " + e.getLocalizedMessage());
-		}
-		return new JsonObject();
 	}
 
 	public static JsonObject loadJsonFile(String fileName) {

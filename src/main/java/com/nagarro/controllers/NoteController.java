@@ -11,20 +11,18 @@ import io.restassured.response.Response;
 import org.apache.commons.lang3.StringUtils;
 
 public class NoteController {
-	public Response getTaskNotes(int parent_id, String parentType) {
+	public Response getTaskNotes(Long parent_id, String parentType) {
 		Api api = new Api();
 		api.apiUrl = Common.generateURL(Endpoint.NOTES);
-		NoteRequest noteRequest = new NoteRequest();
 		if (StringUtils.equalsIgnoreCase(parentType,"LIST"))
-			noteRequest.setList_id(parent_id);
+			api.queryParams.put("list_id",String.valueOf(parent_id));
 		else
-			noteRequest.setTask_id(parent_id);
-		api.jsonBody = JsonHandler.toJson(noteRequest);
+			api.queryParams.put("task_id",String.valueOf(parent_id));
 		api.sendNetworkRequest(RequestType.GET);
 		return api.jsonResponse;
 	}
 
-	public Response fetch(int id) {
+	public Response fetch(Long id) {
 		Api api = new Api();
 		api.apiUrl = Common.generateURL(Endpoint.NOTES);
 		api.pathParams.put("id", String.valueOf(id));
@@ -32,7 +30,7 @@ public class NoteController {
 		return api.jsonResponse;
 	}
 
-	public Response create(int task_id, String content) {
+	public Response create(Long task_id, String content) {
 		Api api = new Api();
 		api.apiUrl = Common.generateURL(Endpoint.NOTES);
 		NoteRequest noteRequest = new NoteRequest();
@@ -43,7 +41,7 @@ public class NoteController {
 		return api.jsonResponse;
 	}
 
-	public Response update(int id, int revision, String content){
+	public Response update(Long id, Long revision, String content){
 		Api api = new Api();
 		api.apiUrl = Common.generateURL(Endpoint.NOTES);
 		NoteRequest noteRequest = new NoteRequest();
@@ -55,7 +53,7 @@ public class NoteController {
 		return api.jsonResponse;
 	}
 
-	public Response delete(int id, int revision) {
+	public Response delete(Long id, Long revision) {
 		Api api = new Api();
 		api.apiUrl = Common.generateURL(Endpoint.NOTES);
 		api.queryParams.put("revision",String.valueOf(revision));

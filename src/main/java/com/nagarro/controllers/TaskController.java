@@ -9,28 +9,24 @@ import com.nagarro.utils.enums.RequestType;
 import io.restassured.response.Response;
 
 public class TaskController {
-	public Response getListTasks(int list_id) {
+	public Response getListTasks(Long list_id) {
 		Api api = new Api();
 		api.apiUrl = Common.generateURL(Endpoint.TASKS);
-		TaskRequest taskRequest = new TaskRequest();
-		taskRequest.setList_id(list_id);
-		api.jsonBody = JsonHandler.toJson(taskRequest);
+		api.queryParams.put("list_id", String.valueOf(list_id));
 		api.sendNetworkRequest(RequestType.GET);
 		return api.jsonResponse;
 	}
 
-	public Response getCompletedTasks(int list_id, boolean completed) {
+	public Response getCompletedTasks(Long list_id, boolean completed) {
 		Api api = new Api();
 		api.apiUrl = Common.generateURL(Endpoint.TASKS);
-		TaskRequest taskRequest = new TaskRequest();
-		taskRequest.setList_id(list_id);
-		taskRequest.setCompleted(completed);
-		api.jsonBody = JsonHandler.toJson(taskRequest);
+		api.queryParams.put("completed",String.valueOf(completed));
+		api.queryParams.put("list_id",String.valueOf(list_id));
 		api.sendNetworkRequest(RequestType.GET);
 		return api.jsonResponse;
 	}
 
-	public Response fetch(int id) {
+	public Response fetch(Long id) {
 		Api api = new Api();
 		api.apiUrl = Common.generateURL(Endpoint.TASKS);
 		api.pathParams.put("id", String.valueOf(id));
@@ -46,7 +42,7 @@ public class TaskController {
 		return api.jsonResponse;
 	}
 
-	public Response update(int id, TaskRequest taskRequest){
+	public Response update(Long id, TaskRequest taskRequest){
 		Api api = new Api();
 		api.apiUrl = Common.generateURL(Endpoint.TASKS);
 		api.jsonBody = JsonHandler.toJson(taskRequest);
@@ -55,7 +51,7 @@ public class TaskController {
 		return api.jsonResponse;
 	}
 
-	public Response delete(int id, int revision) {
+	public Response delete(Long id, Long revision) {
 		Api api = new Api();
 		api.apiUrl = Common.generateURL(Endpoint.TASKS);
 		api.queryParams.put("revision",String.valueOf(revision));
