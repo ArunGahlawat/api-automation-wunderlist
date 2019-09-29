@@ -24,4 +24,14 @@
 			<class name="ListTests"/>
 		</classes>
 	</test>
+	<test name="Task tests">
+		<groups>
+			<run>
+				<include name="TASKS"/>
+			</run>
+		</groups>
+		<classes>
+			<class name="TaskTests"/>
+		</classes>
+	</test>
 </suite>
