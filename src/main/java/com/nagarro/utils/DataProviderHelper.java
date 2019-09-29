@@ -76,7 +76,6 @@ public class DataProviderHelper {
 				maxColCount = maxColCount < sheet.getRow(i).getLastCellNum() ? sheet.getRow(i).getLastCellNum() : maxColCount;
 			}
 
-
 			tabArray = new String[rowCount+1-firstRow][maxColCount];
 			for (int i=firstRow;i<=rowCount;i++) {
 				Row row = sheet.getRow(i);

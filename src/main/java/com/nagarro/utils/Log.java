@@ -1,5 +1,7 @@
 package com.nagarro.utils;
 
+import com.aventstack.extentreports.Status;
+import com.nagarro.utils.report.ExtentTestManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,6 +20,12 @@ public class Log {
 	 */
 	public static void info(String message) {
 		LOGGER.info(message);
+		if (LOGGER.isInfoEnabled()) {
+			try {
+				ExtentTestManager.getTest().log(Status.INFO, message);
+			} catch (Exception ignore) {
+			}
+		}
 	}
 
 	/**
@@ -27,6 +35,12 @@ public class Log {
 	 */
 	public static void debug(String message) {
 		LOGGER.debug(message);
+		if (LOGGER.isDebugEnabled()) {
+			try {
+				ExtentTestManager.getTest().log(Status.DEBUG, message);
+			} catch (Exception ignore) {
+			}
+		}
 	}
 
 	/**
@@ -42,6 +56,13 @@ public class Log {
 		LOGGER.error("==========================================================");
 		LOGGER.error("Exception : " + exception);
 		LOGGER.error("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		if (LOGGER.isErrorEnabled()) {
+			try {
+				ExtentTestManager.getTest().log(Status.ERROR, "In class : " + className + ", method: " + methodName);
+				ExtentTestManager.getTest().log(Status.ERROR, exception);
+			} catch (Exception ignore) {
+			}
+		}
 	}
 
 	/**

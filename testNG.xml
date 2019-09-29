@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Parent Suit">
+	<listeners>
+		<listener class-name="com.nagarro.utils.report.TestListner"/>
+	</listeners>
 	<test name="OAuth Test cases">
 		<groups>
 			<run>
-				<include name="LoginTests"/>
+				<include name="Login"/>
 			</run>
 		</groups>
 		<classes>
