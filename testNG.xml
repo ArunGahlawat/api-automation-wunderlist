@@ -34,4 +34,34 @@
 			<class name="TaskTests"/>
 		</classes>
 	</test>
+	<test name="Subtask tests">
+		<groups>
+			<run>
+				<include name="SUBTASKS"/>
+			</run>
+		</groups>
+		<classes>
+			<class name="SubTaskTests"/>
+		</classes>
+	</test>
+	<test name="Note tests">
+		<groups>
+			<run>
+				<include name="NOTES"/>
+			</run>
+		</groups>
+		<classes>
+			<class name="NoteTests"/>
+		</classes>
+	</test>
+	<test name="Task comment tests">
+		<groups>
+			<run>
+				<include name="TASK_COMMENTS"/>
+			</run>
+		</groups>
+		<classes>
+			<class name="TaskCommentTests"/>
+		</classes>
+	</test>
 </suite>

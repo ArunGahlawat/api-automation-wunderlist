@@ -8,6 +8,15 @@ public class NoteRequest {
 	 private String created_at;
 	 private String updated_at;
 	 private Long revision;
+	 private String type;
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	public Long getId() {
 		return id;

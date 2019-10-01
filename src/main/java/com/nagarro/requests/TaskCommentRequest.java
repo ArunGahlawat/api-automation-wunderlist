@@ -10,6 +10,16 @@ public class TaskCommentRequest {
 	private String text;
 	private String type;
 	private String created_at;
+	private String local_created_at;
+
+	public String getLocal_created_at() {
+		return local_created_at;
+	}
+
+	public void setLocal_created_at(String local_created_at) {
+		this.local_created_at = local_created_at;
+	}
+
 	private Author author;
 	private String title;
 
